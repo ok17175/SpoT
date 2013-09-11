@@ -19,6 +19,11 @@
 		A5D6EE6A17DF5DBD00196736 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D6EE6817DF5DBD00196736 /* MainStoryboard_iPhone.storyboard */; };
 		A5D6EE6D17DF5DBD00196736 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D6EE6B17DF5DBD00196736 /* MainStoryboard_iPad.storyboard */; };
 		A5D6EE7017DF5DBD00196736 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE6F17DF5DBD00196736 /* ViewController.m */; };
+		A5D6EE7A17DF5E4600196736 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7917DF5E4600196736 /* FlickrFetcher.m */; };
+		A5D6EE7D17DF5E6C00196736 /* StandFordPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7C17DF5E6C00196736 /* StandFordPhotoTVC.m */; };
+		A5D6EE8017DF5E7F00196736 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7F17DF5E7F00196736 /* FlickrPhotoTVC.m */; };
+		A5D6EE8317DF5EE100196736 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8217DF5EE100196736 /* ImageViewController.m */; };
+		A5D6EE8617DF636100196736 /* StandFordPlaceTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8517DF636100196736 /* StandFordPlaceTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,17 @@
 		A5D6EE6C17DF5DBD00196736 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		A5D6EE6E17DF5DBD00196736 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A5D6EE6F17DF5DBD00196736 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A5D6EE7717DF5E4600196736 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		A5D6EE7817DF5E4600196736 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		A5D6EE7917DF5E4600196736 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		A5D6EE7B17DF5E6C00196736 /* StandFordPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandFordPhotoTVC.h; sourceTree = "<group>"; };
+		A5D6EE7C17DF5E6C00196736 /* StandFordPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandFordPhotoTVC.m; sourceTree = "<group>"; };
+		A5D6EE7E17DF5E7F00196736 /* FlickrPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoTVC.h; sourceTree = "<group>"; };
+		A5D6EE7F17DF5E7F00196736 /* FlickrPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoTVC.m; sourceTree = "<group>"; };
+		A5D6EE8117DF5EE100196736 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		A5D6EE8217DF5EE100196736 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		A5D6EE8417DF636100196736 /* StandFordPlaceTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandFordPlaceTVC.h; sourceTree = "<group>"; };
+		A5D6EE8517DF636100196736 /* StandFordPlaceTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandFordPlaceTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +101,21 @@
 		A5D6EE5617DF5DBD00196736 /* SpoT */ = {
 			isa = PBXGroup;
 			children = (
+				A5D6EE7617DF5E4600196736 /* FlickrFetcher */,
 				A5D6EE5F17DF5DBD00196736 /* AppDelegate.h */,
 				A5D6EE6017DF5DBD00196736 /* AppDelegate.m */,
 				A5D6EE6817DF5DBD00196736 /* MainStoryboard_iPhone.storyboard */,
 				A5D6EE6B17DF5DBD00196736 /* MainStoryboard_iPad.storyboard */,
 				A5D6EE6E17DF5DBD00196736 /* ViewController.h */,
 				A5D6EE6F17DF5DBD00196736 /* ViewController.m */,
+				A5D6EE7E17DF5E7F00196736 /* FlickrPhotoTVC.h */,
+				A5D6EE7F17DF5E7F00196736 /* FlickrPhotoTVC.m */,
+				A5D6EE7B17DF5E6C00196736 /* StandFordPhotoTVC.h */,
+				A5D6EE7C17DF5E6C00196736 /* StandFordPhotoTVC.m */,
+				A5D6EE8117DF5EE100196736 /* ImageViewController.h */,
+				A5D6EE8217DF5EE100196736 /* ImageViewController.m */,
+				A5D6EE8417DF636100196736 /* StandFordPlaceTVC.h */,
+				A5D6EE8517DF636100196736 /* StandFordPlaceTVC.m */,
 				A5D6EE5717DF5DBD00196736 /* Supporting Files */,
 			);
 			path = SpoT;
@@ -108,6 +133,16 @@
 				A5D6EE6617DF5DBD00196736 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A5D6EE7617DF5E4600196736 /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6EE7717DF5E4600196736 /* FlickrAPIKey.h */,
+				A5D6EE7817DF5E4600196736 /* FlickrFetcher.h */,
+				A5D6EE7917DF5E4600196736 /* FlickrFetcher.m */,
+			);
+			path = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +215,11 @@
 				A5D6EE5D17DF5DBD00196736 /* main.m in Sources */,
 				A5D6EE6117DF5DBD00196736 /* AppDelegate.m in Sources */,
 				A5D6EE7017DF5DBD00196736 /* ViewController.m in Sources */,
+				A5D6EE7A17DF5E4600196736 /* FlickrFetcher.m in Sources */,
+				A5D6EE7D17DF5E6C00196736 /* StandFordPhotoTVC.m in Sources */,
+				A5D6EE8017DF5E7F00196736 /* FlickrPhotoTVC.m in Sources */,
+				A5D6EE8317DF5EE100196736 /* ImageViewController.m in Sources */,
+				A5D6EE8617DF636100196736 /* StandFordPlaceTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
