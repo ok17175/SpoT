@@ -8,12 +8,14 @@
 
 #import "StandFordPhotoTVC.h"
 #import "FlickrFetcher.h"
+#import "RecentViewPhoto.h"
 
 @interface StandFordPhotoTVC ()
 
 @end
 
 @implementation StandFordPhotoTVC
+
 
 -(void)setPhotosInplace:(NSArray *)photosInplace
 {
@@ -53,7 +55,7 @@
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
                     
                     NSURL *url = [FlickrFetcher urlForPhoto:self.photosInPlace[indexPath.row]
-                                                     format:FlickrPhotoFormatSquare];
+                                                     format:FlickrPhotoFormatLarge];
                     [segue.destinationViewController performSelector:@selector(setImageURL:)
                                                           withObject:url];
                     [segue.destinationViewController setTitle:[self.photosInPlace[indexPath.row] valueForKey:FLICKR_PHOTO_TITLE]];
@@ -62,6 +64,15 @@
         }
     }
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *photo = self.photosInPlace[indexPath.row];
+    if (self.class == [StandFordPhotoTVC class]){
+        [RecentViewPhoto addPhoto:photo];
+    }
+}
+
 
 
 @end

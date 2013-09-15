@@ -40,13 +40,14 @@
         
         [self.spinner startAnimating];
         NSURL *imageURL = self.imageURL;
+                    
         dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetcher", NULL);
         dispatch_async(imageFetchQ, ^{
             //[NSThread sleepForTimeInterval:2.0];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES; // bad
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; // bad
+
+            NSData *imageData = [self getImageData:imageURL];
             UIImage *image = [[UIImage alloc] initWithData:imageData];
+            
             if (self.imageURL == imageURL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (image) {
@@ -57,9 +58,134 @@
                     }
                     [self.spinner stopAnimating];
                 });
-            }                
+            }
         });
     }
+}
+
+
+-(NSData *)getImageData:(NSURL *)imageURL
+{
+    
+    
+    NSData *imageData = [[NSData alloc] init];
+    
+    if ([self isCache:imageURL]){
+        imageData = [NSData dataWithContentsOfURL:[self cacheURL:imageURL]];
+        NSLog(@"retrive from cache");
+        
+    }else{
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES; 
+        imageData = [NSData dataWithContentsOfURL:imageURL];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        //cache
+        [self cacheImageData:imageData];
+        NSLog(@"download from internet && cahce");
+        
+    }
+    
+    return imageData;
+}
+
+-(BOOL)isCache:(NSURL *)imageURL
+{
+    NSFileManager *cache = [NSFileManager defaultManager];
+    NSArray *urls = [cache URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSURL *cacheDir = [urls lastObject];
+    cacheDir = [cacheDir URLByAppendingPathComponent:@"spot"];
+    NSString *cacheFileName = [imageURL lastPathComponent];
+    NSURL *cacheFileURL = [cacheDir URLByAppendingPathComponent:cacheFileName];
+    
+    return ([cache fileExistsAtPath:cacheFileURL.path]) ? YES : NO;
+}
+
+-(NSURL *)cacheURL:(NSURL *)imageURL
+{
+    NSFileManager *cache = [NSFileManager defaultManager];
+    NSArray *urls = [cache URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSURL *cacheDir = [urls lastObject];
+    cacheDir = [cacheDir URLByAppendingPathComponent:@"spot"];
+    NSString *cacheFileName = [imageURL lastPathComponent];
+    NSURL *cacheFileURL = [cacheDir URLByAppendingPathComponent:cacheFileName];
+    
+    return cacheFileURL;
+}
+
+-(void)cacheImageData:(NSData *)imageData 
+{
+    NSFileManager *cache = [NSFileManager defaultManager];
+    NSArray *urls = [cache URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSURL *cacheDir = [urls lastObject];
+    
+    // create folder
+    cacheDir = [cacheDir URLByAppendingPathComponent:@"spot"];
+    if (![cache fileExistsAtPath:cacheDir.path])
+        [cache createDirectoryAtPath:cacheDir.path withIntermediateDirectories:YES attributes:Nil error:Nil];
+    
+    NSString *cacheFileName = [self.imageURL lastPathComponent];
+    NSURL *cacheFileURL = [cacheDir URLByAppendingPathComponent:cacheFileName];
+    
+    [imageData writeToURL:cacheFileURL atomically:YES];
+    NSURL *cacheDirURL = [cacheFileURL URLByDeletingLastPathComponent];
+    
+    //clear cache
+    [self clearCache:cacheDirURL];
+}
+
+-(void)clearCache:(NSURL *)cacheDirURL
+{
+    long long maxCacheSize = 10 *1024 *1024;  //10MB
+    
+    NSLog(@"cacheDirURL %@",cacheDirURL);
+    long long curentSize = [self cacheFolderSize:cacheDirURL];
+    NSLog(@"curentSize:%lld",curentSize);
+    NSLog(@"maxCacheSize:%lld",maxCacheSize);
+    while ([self cacheFolderSize:cacheDirURL] > maxCacheSize){
+        NSFileManager *filemanager = [NSFileManager defaultManager];
+        NSLog(@"%@",cacheDirURL);
+        NSArray *files = [filemanager subpathsOfDirectoryAtPath:cacheDirURL.path error:Nil];
+        NSURL *oldestFile = nil;
+        NSDictionary *oldestFileDic = Nil;
+        
+        for (NSString *file in files){
+            NSDictionary *fileDictionary = [filemanager attributesOfItemAtPath:cacheDirURL.path error:Nil];
+            if (oldestFile == Nil) {
+                oldestFile = [NSURL URLWithString:file];
+                oldestFileDic = fileDictionary;
+            }else if ([oldestFileDic valueForKey:NSFileModificationDate] < [fileDictionary valueForKey:NSFileModificationDate]){
+                oldestFile = [NSURL URLWithString:file];
+            }
+        }
+        if (oldestFile){
+            NSError *error = [[NSError alloc] init];
+            NSLog(@"oldestFile %@",oldestFile);
+            BOOL flag = [filemanager removeItemAtURL:[cacheDirURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",oldestFile]] error:&error];
+            if (flag)
+                NSLog(@"delete cache file: %@",oldestFile.path);
+            else
+                NSLog(@"error %@",error);
+            curentSize = [self cacheFolderSize:cacheDirURL];
+            NSLog(@"curentSize:%lld",curentSize);
+        }
+
+    }
+    
+}
+
+-(long long)cacheFolderSize:(NSURL *)cacheDirURL
+{
+    NSFileManager *filemanager = [[NSFileManager alloc]init];
+    NSArray *files = [filemanager subpathsOfDirectoryAtPath:cacheDirURL.path error:Nil];
+    long long sizeOfFolder = 0.00;
+    for (NSString *file in files) {
+        NSDictionary *fileDictionary = [filemanager attributesOfItemAtPath:[cacheDirURL URLByAppendingPathComponent:file].path error:Nil];
+        sizeOfFolder += [fileDictionary fileSize];
+    }
+    NSLog(@"sizeOfFolder %lld",sizeOfFolder);
+    return sizeOfFolder;
+    
 }
 
 - (UIImageView *)imageView

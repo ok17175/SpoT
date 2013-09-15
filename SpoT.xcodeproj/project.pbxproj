@@ -18,12 +18,13 @@
 		A5D6EE6717DF5DBD00196736 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D6EE6617DF5DBD00196736 /* Default-568h@2x.png */; };
 		A5D6EE6A17DF5DBD00196736 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D6EE6817DF5DBD00196736 /* MainStoryboard_iPhone.storyboard */; };
 		A5D6EE6D17DF5DBD00196736 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D6EE6B17DF5DBD00196736 /* MainStoryboard_iPad.storyboard */; };
-		A5D6EE7017DF5DBD00196736 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE6F17DF5DBD00196736 /* ViewController.m */; };
 		A5D6EE7A17DF5E4600196736 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7917DF5E4600196736 /* FlickrFetcher.m */; };
 		A5D6EE7D17DF5E6C00196736 /* StandFordPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7C17DF5E6C00196736 /* StandFordPhotoTVC.m */; };
 		A5D6EE8017DF5E7F00196736 /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE7F17DF5E7F00196736 /* FlickrPhotoTVC.m */; };
 		A5D6EE8317DF5EE100196736 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8217DF5EE100196736 /* ImageViewController.m */; };
 		A5D6EE8617DF636100196736 /* StandFordPlaceTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8517DF636100196736 /* StandFordPlaceTVC.m */; };
+		A5D6EE8C17E20CF300196736 /* RecentViewPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8B17E20CF300196736 /* RecentViewPhoto.m */; };
+		A5D6EE8F17E20FAA00196736 /* RecentViewPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D6EE8E17E20FAA00196736 /* RecentViewPhotoTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +43,6 @@
 		A5D6EE6617DF5DBD00196736 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A5D6EE6917DF5DBD00196736 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		A5D6EE6C17DF5DBD00196736 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		A5D6EE6E17DF5DBD00196736 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5D6EE6F17DF5DBD00196736 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A5D6EE7717DF5E4600196736 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		A5D6EE7817DF5E4600196736 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		A5D6EE7917DF5E4600196736 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
@@ -55,6 +54,10 @@
 		A5D6EE8217DF5EE100196736 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		A5D6EE8417DF636100196736 /* StandFordPlaceTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandFordPlaceTVC.h; sourceTree = "<group>"; };
 		A5D6EE8517DF636100196736 /* StandFordPlaceTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandFordPlaceTVC.m; sourceTree = "<group>"; };
+		A5D6EE8A17E20CF300196736 /* RecentViewPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewPhoto.h; sourceTree = "<group>"; };
+		A5D6EE8B17E20CF300196736 /* RecentViewPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewPhoto.m; sourceTree = "<group>"; };
+		A5D6EE8D17E20FAA00196736 /* RecentViewPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentViewPhotoTVC.h; path = ../RecentViewPhotoTVC.h; sourceTree = "<group>"; };
+		A5D6EE8E17E20FAA00196736 /* RecentViewPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentViewPhotoTVC.m; path = ../RecentViewPhotoTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +109,10 @@
 				A5D6EE6017DF5DBD00196736 /* AppDelegate.m */,
 				A5D6EE6817DF5DBD00196736 /* MainStoryboard_iPhone.storyboard */,
 				A5D6EE6B17DF5DBD00196736 /* MainStoryboard_iPad.storyboard */,
-				A5D6EE6E17DF5DBD00196736 /* ViewController.h */,
-				A5D6EE6F17DF5DBD00196736 /* ViewController.m */,
+				A5D6EE8D17E20FAA00196736 /* RecentViewPhotoTVC.h */,
+				A5D6EE8E17E20FAA00196736 /* RecentViewPhotoTVC.m */,
+				A5D6EE8A17E20CF300196736 /* RecentViewPhoto.h */,
+				A5D6EE8B17E20CF300196736 /* RecentViewPhoto.m */,
 				A5D6EE7E17DF5E7F00196736 /* FlickrPhotoTVC.h */,
 				A5D6EE7F17DF5E7F00196736 /* FlickrPhotoTVC.m */,
 				A5D6EE7B17DF5E6C00196736 /* StandFordPhotoTVC.h */,
@@ -214,12 +219,13 @@
 			files = (
 				A5D6EE5D17DF5DBD00196736 /* main.m in Sources */,
 				A5D6EE6117DF5DBD00196736 /* AppDelegate.m in Sources */,
-				A5D6EE7017DF5DBD00196736 /* ViewController.m in Sources */,
 				A5D6EE7A17DF5E4600196736 /* FlickrFetcher.m in Sources */,
 				A5D6EE7D17DF5E6C00196736 /* StandFordPhotoTVC.m in Sources */,
 				A5D6EE8017DF5E7F00196736 /* FlickrPhotoTVC.m in Sources */,
 				A5D6EE8317DF5EE100196736 /* ImageViewController.m in Sources */,
 				A5D6EE8617DF636100196736 /* StandFordPlaceTVC.m in Sources */,
+				A5D6EE8C17E20CF300196736 /* RecentViewPhoto.m in Sources */,
+				A5D6EE8F17E20FAA00196736 /* RecentViewPhotoTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +358,7 @@
 				A5D6EE7517DF5DBD00196736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
